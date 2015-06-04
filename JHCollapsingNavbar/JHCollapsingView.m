@@ -104,7 +104,7 @@
 }
 
 -(void)snapViewWithTableView:(JHTableView *)tableView andPanGesture:(UIPanGestureRecognizer *)panGesture {
-    if (self.topConstraint.constant < 0 && self.topConstraint.constant > -(self.frame.size.height/2)) {
+    if (self.topConstraint.constant < 0 && self.topConstraint.constant > self.stoppingPoint/2) {
         
         [panGesture setEnabled:NO];
         [tableView.panGestureRecognizer setEnabled:NO];
@@ -125,7 +125,7 @@
             }
         }];
     }
-    else if (self.topConstraint.constant <= -(self.frame.size.height/2) && self.topConstraint.constant > self.stoppingPoint) {
+    else if (self.topConstraint.constant <= self.stoppingPoint/2 && self.topConstraint.constant > self.stoppingPoint) {
         
         [panGesture setEnabled:NO];
         [tableView.panGestureRecognizer setEnabled:NO];
@@ -149,7 +149,7 @@
 }
 
 -(void)snapViewWithScrollView:(JHScrollView *)scrollView andPanGesture:(UIPanGestureRecognizer *)panGesture {
-    if (self.topConstraint.constant < 0 && self.topConstraint.constant > -(self.frame.size.height/2)) {
+    if (self.topConstraint.constant < 0 && self.topConstraint.constant > self.stoppingPoint/2) {
         
         [panGesture setEnabled:NO];
         [scrollView.panGestureRecognizer setEnabled:NO];
@@ -170,7 +170,7 @@
             }
         }];
     }
-    else if (self.topConstraint.constant <= -(self.frame.size.height/2) && self.topConstraint.constant > self.stoppingPoint) {
+    else if (self.topConstraint.constant <= self.stoppingPoint/2 && self.topConstraint.constant > self.stoppingPoint) {
         
         [panGesture setEnabled:NO];
         [scrollView.panGestureRecognizer setEnabled:NO];
