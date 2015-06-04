@@ -26,22 +26,47 @@
     return self;
 }
 
--(void)displayView:(NSArray *)array {
+-(CGFloat)stoppingPoint {
+    if ([UIApplication sharedApplication].isStatusBarHidden) {
+        return -self.frame.size.height;
+    } else {
+        return -self.frame.size.height+20;
+    }
+}
+
+-(void)displayView:(NSArray *)array withScrollView:(JHScrollView *)scrollView {
     if (self.atTheTop) {
         
-        [self layoutIfNeeded];
+        self.topConstraint.constant = 0;
         [UIView animateWithDuration:0.3 animations:^{
-            self.topConstraint.constant = 0;
+            
             for (UIView *object in array) {
                 object.alpha = 1;
             }
             [self layoutIfNeeded];
+            [scrollView layoutIfNeeded];
+        }];
+    }
+}
+
+-(void)displayView:(NSArray *)array withTableView:(JHTableView *)tableView {
+    if (self.atTheTop) {
+        
+        self.topConstraint.constant = 0;
+        [UIView animateWithDuration:0.3 animations:^{
+            
+            for (UIView *object in array) {
+                object.alpha = 1;
+            }
+            [self layoutIfNeeded];
+            [tableView layoutIfNeeded];
         }];
     }
 }
 
 -(BOOL)checkIsAllowedToMove:(CGFloat)translation withGesture:(UIPanGestureRecognizer *)gesture withScrollView:(JHScrollView *)scrollView {
-    if (self.topConstraint.constant < 0 && self.topConstraint.constant > -self.frame.size.height) {
+    NSLog(@"%f", self.stoppingPoint);
+    if (self.topConstraint.constant < 0 && self.topConstraint.constant > self.stoppingPoint) {
         return YES;
     }
     else if (![scrollView isNearTop]) {
@@ -54,7 +79,7 @@
 }
 
 -(BOOL)checkIsAllowedToMove:(CGFloat)translation withGesture:(UIPanGestureRecognizer *)gesture withTableView:(JHTableView *)tableView {
-    if (self.topConstraint.constant < 0 && self.topConstraint.constant > -self.frame.size.height) {
+    if (self.topConstraint.constant < 0 && self.topConstraint.constant > self.stoppingPoint) {
         return YES;
     }
     else if (![tableView isNearTop]) {
@@ -67,7 +92,7 @@
 }
 
 -(void)setFinalAlphaValues:(NSArray *)array {
-    if (self.topConstraint.constant == -self.frame.size.height) {
+    if (self.topConstraint.constant == self.stoppingPoint) {
         for (UIView *object in array) {
             object.alpha = 0;
         }
@@ -100,12 +125,12 @@
             }
         }];
     }
-    else if (self.topConstraint.constant <= -(self.frame.size.height/2) && self.topConstraint.constant > -self.frame.size.height) {
+    else if (self.topConstraint.constant <= -(self.frame.size.height/2) && self.topConstraint.constant > self.stoppingPoint) {
         
         [panGesture setEnabled:NO];
         [tableView.panGestureRecognizer setEnabled:NO];
         
-        self.topConstraint.constant = -self.frame.size.height;
+        self.topConstraint.constant = self.stoppingPoint;
         [UIView animateWithDuration:0.3 animations:^{
             for (UIView *object in tableView.viewChildren) {
                 object.alpha = 0;
@@ -145,12 +170,12 @@
             }
         }];
     }
-    else if (self.topConstraint.constant <= -(self.frame.size.height/2) && self.topConstraint.constant > -self.frame.size.height) {
+    else if (self.topConstraint.constant <= -(self.frame.size.height/2) && self.topConstraint.constant > self.stoppingPoint) {
         
         [panGesture setEnabled:NO];
         [scrollView.panGestureRecognizer setEnabled:NO];
         
-        self.topConstraint.constant = -self.frame.size.height;
+        self.topConstraint.constant = self.stoppingPoint;
         [UIView animateWithDuration:0.3 animations:^{
             for (UIView *object in scrollView.viewChildren) {
                 object.alpha = 0;
@@ -170,8 +195,8 @@
 }
 
 -(CGFloat)checkTopConstraint:(CGFloat)newlyProposedConstraint {
-    if (newlyProposedConstraint <= -self.frame.size.height) {
-        newlyProposedConstraint = -self.frame.size.height;
+    if (newlyProposedConstraint <= self.stoppingPoint) {
+        newlyProposedConstraint = self.stoppingPoint;
         self.atTheTop = YES;
         self.isMoving = NO;
     } else {

@@ -17,8 +17,10 @@
 @property (nonatomic) BOOL isMoving;
 @property (nonatomic) BOOL atTheBottom;
 @property (nonatomic) BOOL atTheTop;
+@property (nonatomic) CGFloat stoppingPoint;
 
--(void)displayView:(NSArray *)array;
+-(void)displayView:(NSArray *)array withScrollView:(JHScrollView *)scrollView;
+-(void)displayView:(NSArray *)array withTableView:(JHTableView *)tableView;
 -(BOOL)checkIsAllowedToMove:(CGFloat)translation withGesture:(UIPanGestureRecognizer *)gesture withScrollView:(JHScrollView *)scrollView;
 -(BOOL)checkIsAllowedToMove:(CGFloat)translation withGesture:(UIPanGestureRecognizer *)gesture withTableView:(JHTableView *)tableView;
 -(void)setFinalAlphaValues:(NSArray *)array;
