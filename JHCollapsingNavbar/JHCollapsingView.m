@@ -34,7 +34,7 @@
     }
 }
 
--(void)displayView:(NSArray *)array withScrollView:(JHScrollView *)scrollView {
+-(void)displayViewWithChildren:(NSArray *)array withScrollView:(JHScrollView *)scrollView {
     if (self.atTheTop) {
         
         self.topConstraint.constant = 0;
@@ -49,7 +49,7 @@
     }
 }
 
--(void)displayView:(NSArray *)array withTableView:(JHTableView *)tableView {
+-(void)displayViewWithChildren:(NSArray *)array withTableView:(JHTableView *)tableView {
     if (self.atTheTop) {
         
         self.topConstraint.constant = 0;
