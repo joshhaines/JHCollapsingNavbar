@@ -1,5 +1,5 @@
 //  JHCollapsingNavbar
-//  JHTableView.m
+//  JHTableView.h
 //
 //  Created by Joshua Haines on 6/2/15.
 //  Copyright (c) 2015 Joshua Haines. All rights reserved.
