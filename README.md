@@ -41,4 +41,4 @@ After you download the contents of this repository:
   
   **Note:** Again, the children array is optional here, but recommended.
   
-That's it!
+That's it! Be sure to check out the Sample folder for examples on how to get it working.
