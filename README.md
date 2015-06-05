@@ -1,5 +1,7 @@
 # JHCollapsingNavbar
 
+![Navbar](/Assets/navbar.gif)
+
 This is a custom collapsing view that you can place at the top of your view controller, and will collapse as you pan up or down on a designated scroll view. It currently works with UIScrollView's and UITableView. The plan is to add support for other views that inherit from UIScrollView.
 
 ### Installation
