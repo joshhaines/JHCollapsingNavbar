@@ -50,6 +50,7 @@
 		15A78E211B1FC429005F7DF4 /* JHTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHTableView.h; sourceTree = "<group>"; };
 		15A78E221B1FC429005F7DF4 /* JHTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHTableView.m; sourceTree = "<group>"; };
 		15A78E281B20E491005F7DF4 /* JHCollapsingNavbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHCollapsingNavbar.h; sourceTree = "<group>"; };
+		15A78E291B21FFE6005F7DF4 /* JHConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JHConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +141,7 @@
 				15A78E211B1FC429005F7DF4 /* JHTableView.h */,
 				15A78E221B1FC429005F7DF4 /* JHTableView.m */,
 				15A78E281B20E491005F7DF4 /* JHCollapsingNavbar.h */,
+				15A78E291B21FFE6005F7DF4 /* JHConstants.h */,
 			);
 			path = JHCollapsingNavbar;
 			sourceTree = "<group>";
@@ -444,6 +446,7 @@
 				15A78E161B1FBE42005F7DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		15A78E171B1FBE42005F7DF4 /* Build configuration list for PBXNativeTarget "JHSampleScrollViewTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +455,7 @@
 				15A78E191B1FBE42005F7DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

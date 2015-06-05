@@ -6,7 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "JHScrollView.h"
+#import "JHConstants.h"
 
 @class JHCollapsingView;
 

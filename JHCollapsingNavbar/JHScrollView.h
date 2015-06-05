@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JHConstants.h"
 
 @class JHCollapsingView;
 
@@ -16,12 +17,6 @@
 @end
 
 @interface JHScrollView : UIScrollView <UIGestureRecognizerDelegate>
-
-typedef enum ScrollDirection {
-    ScrollDirectionNone,
-    ScrollDirectionUp,
-    ScrollDirectionDown,
-} ScrollDirection;
 
 @property (strong, nonatomic) UIPanGestureRecognizer *panGesture;
 @property (strong, nonatomic) JHCollapsingView *collapsingView;
